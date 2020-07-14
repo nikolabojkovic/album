@@ -1,0 +1,52 @@
+/* general */
+
+h1 {
+    height: 76px;
+    width: 313px;
+    color: #000000;
+    font-family: "Helvetica Neue";
+    font-size: 64px;
+    font-weight: 100;
+    letter-spacing: 0;
+    line-height: 78px;
+}
+
+button {
+    background-color: #FFC23B;
+    color: #FFFFFF;
+    width: 100%;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 7.27px;
+    line-height: 25px;
+}
+
+.row {
+    margin-top: 30%;
+    
+    .input {
+        width: 100%;
+    }
+}
+
+/* long-size diisplay */
+@media screen and (max-height: 1024px) {
+    .row {
+        margin-top: 25%;
+    }
+}
+
+/* mid-size display */
+@media screen and (max-height: 768px) {
+    .row {
+        margin-top: 20%;
+    }
+}
+
+/* mobile size*/
+@media screen and (max-height: 414px) {
+    .row {
+        margin-top: 3%;
+    }
+}
