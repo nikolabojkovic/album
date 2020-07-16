@@ -8,7 +8,7 @@ import { User } from '../shared/models/user';
 @Component({
     selector: 'app-logiin',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss']
+    styleUrls: [ './login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -28,10 +28,6 @@ export class LoginComponent implements OnInit {
                 private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        // if (localStorage.getItem('user-token') !== null) {
-        //     this.router.navigate(['album-list']);
-        // }
-
         this.route.queryParams
             .subscribe(params => this.redirectUrl = params.return || 'album-list');
      }
@@ -40,12 +36,10 @@ export class LoginComponent implements OnInit {
         this.loginService.fetchUsers()
             .subscribe((users: User[]) => {
                 if (users.some(user => user.email === this.loginForm.value.email && user.username === this.loginForm.value.username)) {
-                    localStorage.setItem('user-token', this.loginForm.value.email + '-' + this.loginForm.value.user);
+                    localStorage.setItem('user', users.find(u => u.email === this.loginForm.value.email).id.toString());
                     console.log('Login has been successfull.');
                     this.router.navigateByUrl(this.redirectUrl);
                 }
-
-                console.log(users);
             },
             error => console.error(error));
     }

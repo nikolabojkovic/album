@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 const modules = [
     CommonModule,
@@ -12,7 +13,8 @@ const modules = [
     ReactiveFormsModule,
     MatButtonModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
 ];
 
 @NgModule({

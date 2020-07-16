@@ -1,0 +1,11 @@
+@import '../../../styles.scss';
+
+.image {
+    height: 199px;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+div div:nth-child(1) {
+    background-color: indianred;
+}

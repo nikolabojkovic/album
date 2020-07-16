@@ -1,21 +1,11 @@
+
+@import '../../styles.scss';
+
 /* general */
-
-h1 {
-    height: 76px;
-    width: 313px;
-    color: #000000;
-    font-family: "Helvetica Neue";
-    font-size: 64px;
-    font-weight: 100;
-    letter-spacing: 0;
-    line-height: 78px;
-}
-
 button {
     background-color: #FFC23B;
     color: #FFFFFF;
     width: 100%;
-    font-family: "Helvetica Neue";
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 7.27px;
@@ -45,7 +35,7 @@ button {
 }
 
 /* mobile size*/
-@media screen and (max-height: 414px) {
+@media screen and (max-height: 536px) {
     .row {
         margin-top: 3%;
     }

@@ -1,0 +1,9 @@
+<div class="row">
+    <div [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}" >
+        <img class="image" src="https://via.placeholder.com/150/771796" />
+    </div>
+    <div [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}">
+        <h3>{{album.title}}</h3>
+        <div>Kreirao: AlbumCreatedBy</div>
+    </div>
+</div>

@@ -12,8 +12,9 @@
             <mat-label>email</mat-label>
             <input matInput placeholder="Email" formControlName="email">
         </mat-form-field>
-        <button class="text-uppercase text-center pt-3 pb-3"
+        <button class="text-uppercase text-center mt-2 pt-3 pb-3"
                 mat-flat-button
+                [disabled]="!loginForm.valid"
                 type="submit">Klikni</button>
       </div>
     </form>

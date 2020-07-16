@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="col-md-10 col-12">
+            <h1>Foto albumi familije {{lastName}}</h1> 
+        </div>
+        <div class="col-md-2 col-12 layout">
+            <app-layout-view></app-layout-view>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-5" 
+             [ngClass]="{'col-sm-6 col-md-4 col-12': layout === layouts.GridLayout, 'col-12': layout === layouts.ListLayout}" 
+             *ngFor="let album of albums">
+            <app-album-details [album]="album"></app-album-details>
+        </div>
+    </div>
+</div>

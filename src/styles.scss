@@ -37,6 +37,73 @@ $album-theme: mat-light-theme((
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  color: #8A8A8A;
+}
+
+h1 {
+  height: 76px;
+  color: #000000;
+  font-family: "Helvetica Neue";
+  font-size: 64px;
+  font-weight: 200;
+  letter-spacing: 0;
+  line-height: 78px;
+  text-transform:capitalize;
+}
+
+h3 {
+  font-size: 32px;
+  color: #000000;
+  line-height: 39px;
+  font-weight: 100;
+  text-transform: capitalize;
+  padding: 0px;
+  margin: 15px 0px 5px;
+}
+
+h3:hover {
+  color: #FFC23B;
+  cursor: pointer;
+}
+
+/* long-size diisplay */
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+/* mid-size display */
+@media screen and (max-width: 995px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+
+/* mid-size display */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+}
+
+/* mobile size*/
+@media screen and (max-width: 536px) {
+  h1 {
+    font-size: 28px;
+  }
+}
+
+/* mobile size*/
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 22px;
+  }
+}

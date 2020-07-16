@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 
-import 'rxjs/add/operator/map';
-
 @Injectable()
 export class UserService {
 
@@ -15,6 +13,12 @@ export class UserService {
     }
 
     isLogedIn(): boolean {
-      return localStorage.getItem('user-token') !== null;
+      return localStorage.getItem('user') !== null;
+    }
+
+    getCurrentUser(): Observable<User> {
+      const id = localStorage.getItem('user');
+
+      return this.http.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`);
     }
 }
