@@ -55,7 +55,6 @@ h1 {
   font-weight: 200;
   letter-spacing: 0;
   line-height: 78px;
-  text-transform:capitalize;
 }
 
 h3 {
@@ -63,14 +62,32 @@ h3 {
   color: #000000;
   line-height: 39px;
   font-weight: 100;
-  text-transform: capitalize;
   padding: 0px;
   margin: 15px 0px 5px;
 }
 
-h3:hover {
+h3:hover, .delete:hover {
   color: #FFC23B;
   cursor: pointer;
+}
+
+.infinite-results {
+  height: 40rem;
+  overflow: scroll;
+}
+
+.thumbnail {
+  height: 199px;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.album-title {
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  height: 38px;
+  width: 319px;
+  white-space: nowrap;
 }
 
 /* long-size diisplay */

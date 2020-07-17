@@ -4,6 +4,7 @@ import { Album } from '../album.model';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Layouts, layouts } from '../../layout-view/layouts.enum';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-album-details',
@@ -18,10 +19,15 @@ export class AlbumDetailsComponent implements OnInit {
     layout: string;
     layouts: Layouts = layouts;
 
-    constructor(private store: Store<{ layoutView: string }>) { }
+    constructor(private store: Store<{ layoutView: string }>,
+                private router: Router) { }
 
     ngOnInit(): void {
         this.layoutState$ = this.store.pipe(select('layoutView'));
         this.layoutState$.subscribe(state => this.layout = state);
-     }
+    }
+
+    openAlbum(): void {
+        this.router.navigate(['/albums', this.album.id]);
+    }
 }
