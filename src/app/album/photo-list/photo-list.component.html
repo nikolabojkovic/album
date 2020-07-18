@@ -1,0 +1,17 @@
+<div class="container infinite-results"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScroll()"
+     [scrollWindow]="false">
+    <app-back-link [backUrl]="backUrl"></app-back-link>
+    <app-album-header [title]='album.title'></app-album-header>
+    <app-search></app-search>
+    <div class="row">
+        <div class="mb-5" 
+             [ngClass]="{'col-sm-6 col-md-4 col-12': layout === layouts.GridLayout, 'col-12': layout === layouts.ListLayout}" 
+             *ngFor="let photo of photos">
+            <app-photo-details [photo]="photo" (deletePhoto)='onDeletePhoto($event)'></app-photo-details>
+        </div>
+    </div>
+</div>

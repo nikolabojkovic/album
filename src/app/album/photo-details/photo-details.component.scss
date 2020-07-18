@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+
+.album-title {
+    max-width: 280px;
+    position: relative;
+    top: 5px;
+}
+
+.delete {
+    font-size: 36px;
+}
+
+.delete-button-list-view {
+    position: relative;
+    top: 100px;
+}

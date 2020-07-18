@@ -1,0 +1,13 @@
+<div class="row">
+    <div [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}" >
+        <img class="thumbnail" src="https://via.placeholder.com/150/771796" />
+    </div>
+    <div [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}">
+        <div class="row">
+            <h3 [ngClass]="{'col-10': layout === layouts.GridLayout, 'col-12': layout === layouts.ListLayout}" class="album-title">{{photo.title}}</h3>
+            <div [ngClass]="{'col-2': layout === layouts.GridLayout, 'col-12 delete-button-list-view': layout === layouts.ListLayout}" class="align-self-end">
+                <mat-icon class="delete" aria-hidden="false" aria-label="delete" (click)="delete()">delete_outline</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
