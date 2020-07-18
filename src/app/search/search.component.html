@@ -1,9 +1,4 @@
-<!-- <mat-form-field>
-    <mat-icon class="search">search</mat-icon>
-    <input matInput placeholder="Pretrazi" type="text" class="">
-</mat-form-field> -->
-
 <div class="row mb-3 mt-2">
     <mat-icon class="search mr-2">search</mat-icon>
-    <input matInput placeholder="Pretrazi" type="text" class="">
+    <input matInput (keyup)="onSearch($event)" placeholder="Pretrazi" type="text" class="">
 </div>

@@ -14,6 +14,7 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 import { AlbumService } from './album/album.service';
 
 import { layoutViewReducer } from './layout-view/layout.reducer';
+import { searchReducer } from './search/search.reducer';
 
 import { AlbumListComponent } from './album/album-list/album-list.component';
 import { AlbumDetailsComponent } from './album/album-details/album-details.component';
@@ -42,7 +43,7 @@ import { SearchComponent } from './search/search.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
-    StoreModule.forRoot({ layoutView: layoutViewReducer }),
+    StoreModule.forRoot({ layoutView: layoutViewReducer, search: searchReducer }),
     MaterialModule,
     InfiniteScrollModule
   ],

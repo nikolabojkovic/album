@@ -19,9 +19,11 @@ export class AlbumListComponent implements OnInit {
     lastName = '';
     albums: Album[];
     user: User;
+
     layoutState$: Observable<string>;
     layout: string;
     layouts: Layouts = layouts;
+
     page = 1;
     pageSize = 5;
 
@@ -32,6 +34,7 @@ export class AlbumListComponent implements OnInit {
     ngOnInit(): void {
         this.layoutState$ = this.store.pipe(select('layoutView'));
         this.layoutState$.subscribe(state => this.layout = state);
+
         this.userService.getCurrentUser().subscribe((user: User) => {
             const names = user.name.split(' ');
             if (names.length > 1) {

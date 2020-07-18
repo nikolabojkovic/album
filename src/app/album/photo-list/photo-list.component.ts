@@ -17,22 +17,28 @@ export class PhotoListComponent implements OnInit {
 
     album: Album = new Album();
     photos: Photo[];
-    layoutState$: Observable<string>;
+
     layout: string;
     layouts: Layouts = layouts;
+
     backUrl: string;
     page = 1;
     pageSize = 10;
 
     constructor(private albumService: AlbumService,
-                private store: Store<{ layoutView: string }>,
+                private store: Store<{ layoutView: string, search: string }>,
                 private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        this.layoutState$ = this.store.pipe(select('layoutView'));
-        this.layoutState$.subscribe(state => this.layout = state);
+        this.store.pipe(select('layoutView'))
+            .subscribe(state => this.layout = state);
+
+        this.store.pipe(select('search'))
+            .subscribe(state => console.log(state));
+
         const albumId = parseInt(this.route.snapshot.paramMap.get('albumId'), 10);
         this.backUrl = `/albums`;
+
         this.albumService.getAlbumById(albumId).subscribe((album: Album) => this.album = album,
             error => console.error(error));
 
