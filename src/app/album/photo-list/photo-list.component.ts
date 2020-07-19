@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Lightbox } from 'ngx-lightbox';
 
 import { Album } from '../album.model';
 import { AlbumService } from '../album.service';
@@ -17,6 +17,7 @@ export class PhotoListComponent implements OnInit {
 
     album: Album = new Album();
     photos: Photo[] = [];
+    lightBoxPhotos = [];
 
     layout: string;
     layouts: Layouts = layouts;
@@ -28,7 +29,8 @@ export class PhotoListComponent implements OnInit {
 
     constructor(private albumService: AlbumService,
                 private store: Store<{ layoutView: string, search: string }>,
-                private route: ActivatedRoute) { }
+                private route: ActivatedRoute,
+                private lightbox: Lightbox) { }
 
     ngOnInit(): void {
         this.store.pipe(select('layoutView'))
@@ -50,25 +52,54 @@ export class PhotoListComponent implements OnInit {
             error => console.error(error));
 
         this.albumService.fetchPhotos(albumId, this.page, this.pageSize)
-            .subscribe((photos: Photo[]) => this.photos = photos,
-                        error => console.error(error));
+            .subscribe((photos: Photo[]) => {
+                this.photos = photos;
+                this.lightBoxPhotos = [];
+                this.pushToAlbums(photos);
+             },
+            error => console.error(error));
     }
 
     onScroll(): void {
         this.page = this.page + 1;
         this.albumService.filterPhotos(this.album.id, this.page, this.pageSize, this.searchInput)
-            .subscribe((photos: Photo[]) => this.photos = this.photos.concat(photos),
-                        error => console.error(error));
+            .subscribe((photos: Photo[]) => {
+                this.photos = this.photos.concat(photos);
+                this.pushToAlbums(photos);
+             },
+            error => console.error(error));
     }
 
     onDeletePhoto(photo: Photo): void {
         this.photos = this.photos.filter(p => p.id !== photo.id);
+        this.lightBoxPhotos = this.lightBoxPhotos.filter(p => p.id !== photo.id);
     }
 
     filterPhotos(albumId: number, title: string): void {
         this.page = 1;
         this.albumService.filterPhotos(albumId, this.page, this.pageSize, title)
-            .subscribe((photos: Photo[]) => this.photos = photos,
-                        error => console.error(error));
+            .subscribe((photos: Photo[]) => {
+                this.photos = photos;
+                this.lightBoxPhotos = [];
+                this.pushToAlbums(photos);
+             },
+            error => console.error(error));
+    }
+
+    pushToAlbums(photos: Photo[]): void {
+        photos.forEach(photo => {
+            const album = {
+                id: photo.id,
+                src: photo.url + '.jpg',
+                thumb: photo.thumbnailUrl + '-thumb.jpg'
+            };
+
+            this.lightBoxPhotos.push(album);
+        });
+    }
+
+    onOpenPhoto(index: number): void {
+        console.log(this.lightbox);
+        this.lightbox.open(this.lightBoxPhotos, index, { centerVertically: true });
     }
 }

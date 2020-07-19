@@ -10,8 +10,8 @@
     <div class="row">
         <div class="mb-5" 
              [ngClass]="{'col-sm-6 col-md-6 col-lg-4 col-12': layout === layouts.GridLayout, 'col-12': layout === layouts.ListLayout}" 
-             *ngFor="let photo of photos">
-            <app-photo-details [photo]="photo" (deletePhoto)='onDeletePhoto($event)'></app-photo-details>
+             *ngFor="let photo of photos; let i=index">
+            <app-photo-details [photo]="photo" [photoIndex]="i" (openPhoto)="onOpenPhoto($event)" (deletePhoto)="onDeletePhoto($event)"></app-photo-details>
         </div>
         <mat-progress-spinner [diameter]="40"></mat-progress-spinner>
     </div>

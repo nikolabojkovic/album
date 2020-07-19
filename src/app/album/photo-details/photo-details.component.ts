@@ -20,7 +20,9 @@ export class PhotoDetailsComponent implements OnInit {
     faTrash = faTrashAlt;
 
     @Input() photo: Photo;
+    @Input() photoIndex: number;
     @Output() deletePhoto = new EventEmitter<Photo>();
+    @Output() openPhoto = new EventEmitter<number>();
 
     layoutState$: Observable<string>;
     layout: string;
@@ -44,5 +46,9 @@ export class PhotoDetailsComponent implements OnInit {
                this.deletePhoto.emit(this.photo);
             }
         });
+    }
+
+    open(): void {
+        this.openPhoto.emit(this.photoIndex);
     }
 }

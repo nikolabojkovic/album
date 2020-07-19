@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LightboxModule } from 'ngx-lightbox';
 
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { AlbumService } from './album/album.service';
@@ -49,7 +50,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     StoreModule.forRoot({ layoutView: layoutViewReducer, search: searchReducer }),
     MaterialModule,
     InfiniteScrollModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LightboxModule
   ],
   providers: [
     AuthGuardService,

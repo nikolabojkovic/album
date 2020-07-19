@@ -1,10 +1,12 @@
 <div class="row">
     <div class="image-container" [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-lg-4 col-sm-6 col-12': layout === layouts.ListLayout}" >
-        <img class="thumbnail" [src]="photo.url" />
+        <img class="thumbnail" (click)="open()" [src]="photo.url" />
     </div>
     <div [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-lg-4 col-sm-6 col-12': layout === layouts.ListLayout}">
         <div class="row">
-            <h3 [ngClass]="{'col-10': layout === layouts.GridLayout, 'col-12': layout === layouts.ListLayout}" class="album-title">{{photo.title}}</h3>
+            <h3 [ngClass]="{'col-10': layout === layouts.GridLayout, 'col-12': layout === layouts.ListLayout}"
+                class="album-title"
+                (click)="open()">{{photo.title}}</h3>
             <div [ngClass]="{'col-2 mb-1': layout === layouts.GridLayout, 'col-12 delete-button-list-view': layout === layouts.ListLayout}" class="align-self-end">
                 <fa-icon [icon]="faTrash" class="delete" (click)="delete()"></fa-icon>
             </div>
