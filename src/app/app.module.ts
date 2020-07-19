@@ -23,7 +23,7 @@ import { LayoutViewComponent } from './layout-view/layout-view.component';
 import { AlbumHeaderComponent } from './album/album-header/album-header.component';
 import { PhotoListComponent } from './album/photo-list/photo-list.component';
 import { PhotoDetailsComponent } from './album/photo-details/photo-details.component';
-import { BackLinkComponent } from './back-liink/back-link.component';
+import { BackLinkComponent } from './back-link/back-link.component';
 import { SearchComponent } from './search/search.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 

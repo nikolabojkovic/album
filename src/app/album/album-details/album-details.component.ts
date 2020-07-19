@@ -16,7 +16,7 @@ import { AlbumService } from '../album.service';
 export class AlbumDetailsComponent implements OnInit {
 
     @Input() album: Album;
-    albumThumbnail: Photo;
+    albumThumbnail: Photo = new Photo();
 
     layoutState$: Observable<string>;
     layout: string;
