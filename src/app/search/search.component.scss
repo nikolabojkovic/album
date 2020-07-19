@@ -10,12 +10,12 @@
 
 
 input {
-   // padding-left: 36px;
     font-size: 30px;
     border: none;
     border-bottom: 1px solid black;
     padding-left: 35px;
     padding-bottom: 10px;
+    width: 290px;
 }
 
 input:focus, input:active {
@@ -28,5 +28,12 @@ input:focus, input:active {
 
 div {
     position: relative;
-    right: 11px;
+    right: 18px;
 }
+
+/* mobile size*/
+@media screen and (max-width: 330px) {
+    input {
+        width: 240px;
+    }
+  }

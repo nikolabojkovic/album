@@ -1,16 +1,29 @@
 @import '../../../styles.scss';
 
+.row {
+    .row {
+        margin: 0px;
+    }
+}
+
 .album-title {
-    max-width: 280px;
+    max-width: 300px;
     position: relative;
     top: 5px;
 }
 
 .delete {
-    font-size: 36px;
+    font-size: 28px;
+    position: relative;
 }
 
-.delete-button-list-view {
-    position: relative;
-    top: 100px;
+.delete-button-list-view {    
+    top: 110px;
 }
+
+/* mobile size*/
+@media screen and (max-width: 575px) {
+    .delete-button-list-view {    
+        top: 0px;
+    }
+  }

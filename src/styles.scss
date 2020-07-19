@@ -47,6 +47,10 @@ body {
   color: #8A8A8A;
 }
 
+.container {
+  padding: 0px;
+}
+
 h1 {
   height: 76px;
   color: #000000;
@@ -55,6 +59,10 @@ h1 {
   font-weight: 200;
   letter-spacing: 0;
   line-height: 78px;
+
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
 }
 
 h3 {
@@ -71,8 +79,8 @@ h3:hover, .delete:hover {
   cursor: pointer;
 }
 
-.infinite-results {
-  height: 40rem;
+.infinite-scroll {
+  max-height: 100%;
   overflow: scroll;
 }
 
@@ -80,6 +88,14 @@ h3:hover, .delete:hover {
   height: 199px;
   max-width: 100%;
   cursor: pointer;
+}
+
+.thumbnail, .row, .image-container {
+  width: 100%;
+}
+
+.thumbnail {
+  max-width: 353px;
 }
 
 .album-title {
@@ -109,18 +125,23 @@ h3:hover, .delete:hover {
   h1 {
     font-size: 32px;
   }
+
+  .container {
+    margin: 0px 10px;
+    max-width: 100%;
+  }
 }
 
 /* mobile size*/
 @media screen and (max-width: 536px) {
   h1 {
-    font-size: 28px;
+    font-size: 34px;
   }
 }
 
 /* mobile size*/
 @media screen and (max-width: 320px) {
   h1 {
-    font-size: 22px;
+    font-size: 26px;
   }
 }

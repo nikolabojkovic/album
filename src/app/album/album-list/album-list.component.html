@@ -1,10 +1,12 @@
-<div class="container infinite-results"
+<div class="container infinite-scroll"
      infiniteScroll
-     [infiniteScrollDistance]="2"
-     [infiniteScrollThrottle]="50"
+     [infiniteScrollDistance]="1"
+     [infiniteScrollThrottle]="10"
      (scrolled)="onScroll()"
-     [scrollWindow]="false">    
-    <app-album-header [title]='"Foto albumi familije " + lastName'></app-album-header>
+     [scrollWindow]="false">  
+    <div class="mb-2 mt-5">
+        <app-album-header [title]='"Foto albumi familije " + lastName'></app-album-header>
+    </div>  
     <div class="row">
         <div class="mb-5" 
              [ngClass]="{'col-sm-6 col-md-4 col-12': layout === layouts.GridLayout, 'col-12': layout === layouts.ListLayout}" 

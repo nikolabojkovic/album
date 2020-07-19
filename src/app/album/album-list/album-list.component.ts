@@ -25,7 +25,7 @@ export class AlbumListComponent implements OnInit {
     layouts: Layouts = layouts;
 
     page = 1;
-    pageSize = 5;
+    pageSize = 10;
 
     constructor(private albumService: AlbumService,
                 private userService: UserService,

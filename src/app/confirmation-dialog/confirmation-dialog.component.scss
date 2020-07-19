@@ -1,0 +1,20 @@
+@import '../../styles.scss';
+
+.mat-typography {
+    font-size: 32px;
+
+    p {
+        padding: 40px 30px;
+        line-height: 38px;
+    }
+}
+
+mat-dialog-actions {
+    button {
+        padding: 10px 5px;
+    }
+}
+
+.confirm-btn {
+    background-color: #FFC23B;
+}

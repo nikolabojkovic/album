@@ -16,10 +16,11 @@ import { ActivatedRoute } from '@angular/router';
 export class PhotoListComponent implements OnInit {
 
     album: Album = new Album();
-    photos: Photo[];
+    photos: Photo[] = [];
 
     layout: string;
     layouts: Layouts = layouts;
+    searchInput: string;
 
     backUrl: string;
     page = 1;
@@ -34,7 +35,13 @@ export class PhotoListComponent implements OnInit {
             .subscribe(state => this.layout = state);
 
         this.store.pipe(select('search'))
-            .subscribe(state => console.log(state));
+            .subscribe(input => {
+                this.searchInput = input;
+
+                if (this.album.id) {
+                    this.filterPhotos(this.album.id, input);
+                }
+            });
 
         const albumId = parseInt(this.route.snapshot.paramMap.get('albumId'), 10);
         this.backUrl = `/albums`;
@@ -49,12 +56,19 @@ export class PhotoListComponent implements OnInit {
 
     onScroll(): void {
         this.page = this.page + 1;
-        this.albumService.fetchPhotos(this.album.id, this.page, this.pageSize)
+        this.albumService.filterPhotos(this.album.id, this.page, this.pageSize, this.searchInput)
             .subscribe((photos: Photo[]) => this.photos = this.photos.concat(photos),
                         error => console.error(error));
     }
 
     onDeletePhoto(photo: Photo): void {
         this.photos = this.photos.filter(p => p.id !== photo.id);
+    }
+
+    filterPhotos(albumId: number, title: string): void {
+        this.page = 1;
+        this.albumService.filterPhotos(albumId, this.page, this.pageSize, title)
+            .subscribe((photos: Photo[]) => this.photos = photos,
+                        error => console.error(error));
     }
 }

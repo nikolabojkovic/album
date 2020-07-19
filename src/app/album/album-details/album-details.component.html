@@ -1,8 +1,8 @@
 <div class="row">
-    <div [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}" >
-        <img (click)="openAlbum()" class="thumbnail" src="https://via.placeholder.com/150/771796" />
+    <div class="image-container" [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}" >
+        <img (click)="openAlbum()" class="thumbnail" [src]="albumThumbnail.thumbnailUrl" />
     </div>
-    <div [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}">
+    <div class="album-title-container" [ngClass]="{'col-12': layout === layouts.GridLayout, 'col-md-4 col-sm-6 col-12': layout === layouts.ListLayout}">
         <h3 class="album-title" (click)="openAlbum()">{{album.title}}</h3>
         <div>Kreirao: AlbumCreatedBy</div>
     </div>

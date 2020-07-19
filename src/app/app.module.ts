@@ -9,6 +9,7 @@ import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { AlbumService } from './album/album.service';
@@ -24,6 +25,7 @@ import { PhotoListComponent } from './album/photo-list/photo-list.component';
 import { PhotoDetailsComponent } from './album/photo-details/photo-details.component';
 import { BackLinkComponent } from './back-liink/back-link.component';
 import { SearchComponent } from './search/search.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { SearchComponent } from './search/search.component';
     PhotoDetailsComponent,
     LayoutViewComponent,
     BackLinkComponent,
-    SearchComponent
+    SearchComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { SearchComponent } from './search/search.component';
     LoginModule,
     StoreModule.forRoot({ layoutView: layoutViewReducer, search: searchReducer }),
     MaterialModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FontAwesomeModule
   ],
   providers: [
     AuthGuardService,
