@@ -38,7 +38,7 @@ export class PhotoDetailsComponent implements OnInit {
 
     delete(): void {
         const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-             data: { text : `Da li si siguran da zelis da obrises (${this.photo.title})` }
+             data: { text : `(${this.photo.title})` }
         });
 
         dialogRef.afterClosed().subscribe(confirmed => {

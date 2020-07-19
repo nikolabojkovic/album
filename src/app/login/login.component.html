@@ -7,15 +7,18 @@
         <mat-form-field class="input">
             <mat-label>korisničko ime</mat-label>
             <input matInput placeholder="Korisnicko ime" formControlName="username">
+            <mat-error *ngIf="!loginForm.value.username.valid">{{getUsernameErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field class="input">
             <mat-label>email</mat-label>
             <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="!loginForm.value.email.valid">{{getEmalErrorMessage()}}</mat-error>
         </mat-form-field>
         <button class="text-uppercase text-center mt-2 pt-3 pb-3"
                 mat-flat-button
                 [disabled]="!loginForm.valid"
                 type="submit">Klikni</button>
-      </div>
+        <mat-error *ngIf="loginFailed">Kredencijali su pogresni</mat-error>   
+      </div>           
     </form>
 </div>

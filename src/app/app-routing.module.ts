@@ -7,7 +7,9 @@ import { PhotoListComponent } from './album/photo-list/photo-list.component';
 
 
 const routes: Routes = [
-      { path: '', component: AlbumListComponent },
+      {
+        path: '', component: AlbumListComponent,
+        canActivate: [AuthGuardService] },
       { path: 'login', component: LoginComponent },
       {
         path: 'albums', component: AlbumListComponent,

@@ -1,10 +1,11 @@
 @import '../../styles.scss';
 
 .mat-typography {
+    text-align: center;
     font-size: 32px;
 
     p {
-        padding: 40px 30px;
+        padding: 5px 30px;
         line-height: 38px;
     }
 }
