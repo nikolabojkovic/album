@@ -55,7 +55,7 @@ export class PhotoListComponent implements OnInit {
             .subscribe((photos: Photo[]) => {
                 this.photos = photos;
                 this.lightBoxPhotos = [];
-                this.pushToAlbums(photos);
+                this.pushToLightbox(photos);
              },
             error => console.error(error));
     }
@@ -65,7 +65,7 @@ export class PhotoListComponent implements OnInit {
         this.albumService.filterPhotos(this.album.id, this.page, this.pageSize, this.searchInput)
             .subscribe((photos: Photo[]) => {
                 this.photos = this.photos.concat(photos);
-                this.pushToAlbums(photos);
+                this.pushToLightbox(photos);
              },
             error => console.error(error));
     }
@@ -75,18 +75,23 @@ export class PhotoListComponent implements OnInit {
         this.lightBoxPhotos = this.lightBoxPhotos.filter(p => p.id !== photo.id);
     }
 
+    onOpenPhoto(index: number): void {
+        console.log(this.lightbox);
+        this.lightbox.open(this.lightBoxPhotos, index, { centerVertically: true });
+    }
+
     filterPhotos(albumId: number, title: string): void {
         this.page = 1;
         this.albumService.filterPhotos(albumId, this.page, this.pageSize, title)
             .subscribe((photos: Photo[]) => {
                 this.photos = photos;
                 this.lightBoxPhotos = [];
-                this.pushToAlbums(photos);
+                this.pushToLightbox(photos);
              },
             error => console.error(error));
     }
 
-    pushToAlbums(photos: Photo[]): void {
+    pushToLightbox(photos: Photo[]): void {
         photos.forEach(photo => {
             const album = {
                 id: photo.id,
@@ -96,10 +101,5 @@ export class PhotoListComponent implements OnInit {
 
             this.lightBoxPhotos.push(album);
         });
-    }
-
-    onOpenPhoto(index: number): void {
-        console.log(this.lightbox);
-        this.lightbox.open(this.lightBoxPhotos, index, { centerVertically: true });
     }
 }
